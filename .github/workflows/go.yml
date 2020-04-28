@@ -22,6 +22,14 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
+    - name: Install git
+      run: sudo apt-get install git
+
+    - name: Setup for private repository go get access
+      run: |
+        git config --global url."ssh://git@github.com/bananaumai-dev/".insteadOf "https://github.com/bananaumai-dev/"
+        go env -w GOPRIVATE=github.com/bananaumai-dev/go-bnn
+
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
