@@ -27,8 +27,7 @@ jobs:
 
     - name: Setup for private repository go get access
       run: |
-        git config --global url."ssh://git@github.com/bananaumai-dev/".insteadOf "https://github.com/bananaumai-dev/"
-        go env -w GOPRIVATE=github.com/bananaumai-dev/go-bnn
+        git config --global url."https://git:${{ secrets.GA_TOKEN }}@github.com/bananaumai-dev".insteadOf "https://github.com/bananaumai-dev"
 
     - name: Get dependencies
       run: |
