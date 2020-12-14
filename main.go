@@ -9,5 +9,4 @@ import (
 func main() {
 	fmt.Printf("%s\n", bnn.Bnn())
   fmt.Println("hello world")
-  f
 }
