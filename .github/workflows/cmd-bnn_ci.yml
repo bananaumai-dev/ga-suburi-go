@@ -5,7 +5,6 @@ on:
     branches: [ master ]
     paths:
       - cmd/bnn/**.go
-      - '!internal/**'
 
 defaults:
   run:
