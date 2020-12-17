@@ -1,10 +1,11 @@
-name: Go
+name: Go bnn
 
 on:
   pull_request:
     branches: [ master ]
     paths:
       - cmd/bnn/**.go
+      - '!internal/**.go'
 
 defaults:
   run:
