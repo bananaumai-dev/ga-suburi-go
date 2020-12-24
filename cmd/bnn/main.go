@@ -1,12 +1,10 @@
 package main
 
 import (
-	"fmt"
-
+	"github.com/bananaumai-dev/ga-suburi-go/internal/print"
 	"github.com/bananaumai-dev/go-bnn/pkg/bnn"
 )
 
 func main() {
-	fmt.Printf("%s\n", bnn.Bnn())
-  fmt.Println("hello world")
+	print.PrintHello(bnn.Bnn())
 }

@@ -1,13 +1,18 @@
-name: Go
+name: Go bnn
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
+    paths:
+      - cmd/bnn/**.go
+      - '!internal/**.go'
+
+defaults:
+  run:
+    shell: bash
+    working-directory: cmd/bnn
 
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -32,13 +37,9 @@ jobs:
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
-        if [ -f Gopkg.toml ]; then
-            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-            dep ensure
-        fi
 
-    - name: Build
-      run: go build -v .
+    - name: vet
+      run: go vet ./...
 
-    - name: Test
-      run: go test -v .
+    - name: vet
+      run: go test -v ./...
